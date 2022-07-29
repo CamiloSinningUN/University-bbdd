@@ -1,0 +1,87 @@
+<!-- Zone you have class and its active -->
+{{#if course}}
+{{#if meeting }}
+<div class="h-100 w-100 m-5 p-5 mx-auto">
+  <h1 class="text-center font-custom1" style="color: white;">You have a class in progress
+    now</h1>
+  <div class="row">
+    <div class="col">
+      <div class="card m-5 border border-light mx-auto p-3 w-75" style="border-radius: 25px 25px 25px 25px;">
+        <h1 class="font-custom1 text-center">{{subject.namesub}}<span class="bg-custom5">.</span></h1>
+        <hr class="sidebar-divider mt-2 w-100 bg-dark" />
+        <h2 class="font-custom1">Prosefor<span class="bg-custom5 m-1">:</span>
+          <span class="font-custom1">{{profesor.namep}} {{profesor.lastname}}</span>
+        </h2>
+        <h2 class="font-custom1">Course<span class="bg-custom5 m-1">:</span>
+          <span class="font-custom1">{{course.NRC}}</span>
+        </h2>
+        <h2 class="font-custom1">Hour<span class="bg-custom5 m-1">:</span>
+          <span class="font-custom1">{{schedule.st_time}} <span class="bg-custom5 m-1">-</span> {{schedule.fin_time}}</span>
+        </h2>
+        <h2 class="font-custom1">Profesor code<span class="bg-custom5 m-1">:</span>
+          <span class="font-custom1">{{profesor_number}}</span>
+        </h2>
+        <h2 class="font-custom1">Course code:<span class="bg-custom5 m-1">:</span>
+          <span class="font-custom1">{{student_number}}</span>
+        </h2>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card m-5 border border-light mx-auto p-3 w-75 "
+        style="border-radius: 25px 25px 25px 25px;">
+        <form action="/student/attends/add" method="post">
+          <div>
+            <h1 class="font-custom1">Attendance<span class="bg-custom5">.</span></h1>
+            <div class="mb-3">
+              <label for="Code_p" class="form-label font-custom1">Profesor code</label>
+              <input type="text" class="form-control" id="Code_p" name="Code_p" required />
+            </div>
+            <div class="mb-3">
+              <label for="Code_s" class="form-label font-custom1">Course code</label>
+              <input type="text" class="form-control" id="Code_s" name="Code_s" required />
+            </div>
+            <button type="submit" class="btn w-100 font-custom1" style="background-color: #FF84E8;">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{else}}
+<!-- Zone you have class but not active -->
+
+<div class="h-100 w-100 m-5 p-5 mx-auto">
+  <h1 class="text-center font-custom1" style="color: white;">You have a class now</h1>
+  <div class="card m-5 border border-light mx-auto p-3 position-relative"
+    style="height: 500px; width: 500px; border-radius: 25px 25px 25px 25px;">
+    <h1 class="font-custom1 text-center">{{subject.namesub}}<span class="bg-custom5">.</span></h1>
+        <hr class="sidebar-divider mt-2 w-100 bg-dark" />
+        <h2 class="font-custom1">Prosefor<span class="bg-custom5 m-1">:</span>
+          <span class="font-custom1">{{profesor.namep}} {{profesor.lastname}}</span>
+        </h2>
+        <h2 class="font-custom1">Course<span class="bg-custom5 m-1">:</span>
+          <span class="font-custom1">{{course.NRC}}</span>
+        </h2>
+        <h2 class="font-custom1">Hour<span class="bg-custom5 m-1">:</span>
+          <span class="font-custom1">{{schedule.st_time}} <span class="bg-custom5 m-1">-</span> {{schedule.fin_time}}</span>
+        </h2>
+    <p class="text-center font-custom1 mt-4 align-bottom position-absolute"
+      style="color: #ffa9e7; bottom: 0px; left: 100px;">The teacher has not active the class yet</p>
+  </div>
+</div>
+{{/if}}
+{{else}}
+<!-- Zone you don't have class -->
+<div class="h-100 w-100 m-5 p-5 mx-auto">
+  <h1 class="text-center font-custom1" style="color: white;">You don't have a class now</h1>
+  <div class="mx-auto m-5" style="width: 200px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-" viewBox="0 0 16 16">
+      <path
+        d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+      <path
+        d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+    </svg>
+  </div>
+</div>
+{{/if}}

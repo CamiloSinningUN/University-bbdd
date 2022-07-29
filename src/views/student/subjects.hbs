@@ -1,0 +1,34 @@
+<!-- Zone you have class and its active -->
+{{#if cursos}}
+  <div class="h-100 w-100 m-5 p-5 mx-auto">
+    
+    <div class="d-flex align-items-stretch flex-wrap">
+      {{#each cursos}}
+
+        <button
+          class="card m-4 border border-light mx-auto p-3"
+          style="border-radius: 25px 25px 25px 25px; min-width: 500px;"
+          onclick="location.href='/student/schedules/{{nc}}'"
+        >
+          <h1 class="font-custom1 text-center">{{namesub}}<span
+              class="bg-custom5"
+            >.</span></h1>
+          <hr class="sidebar-divider mt-2 w-100 bg-dark" />
+          <h2 class="font-custom1">Departamento<span
+              class="bg-custom5 m-1"
+            >:</span>
+            <span class="font-custom1">{{cod_depart}}</span>
+          </h2>
+          <h2 class="font-custom1">NRC<span class="bg-custom5 m-1">:</span>
+            <span class="font-custom1">{{nc}}</span>
+          </h2>
+          <h2 class="font-custom1">Profesor<span class="bg-custom5 m-1">:</span>
+            <span class="font-custom1">{{namep}} {{lastname}}</span>
+          </h2>
+        </button>{{/each}}
+
+        
+    </div>
+
+  </div>
+{{/if}}

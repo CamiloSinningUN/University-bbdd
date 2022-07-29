@@ -1,0 +1,90 @@
+<div class="bg-custom4 w-100 h-100 p-5">
+  <div class="container d-flex justify-content-around align-items-center p-5">
+    <div class="m-5 p-3">
+      <h1 class="font-custom1" style="color:white ; text-align: left;">
+        <b>List system<span class="bg-custom5">.</span></b></h1>
+      <p class="font-custom1" style="color:white ;">The ideal system to
+        administrate
+        <br />
+        the list and information of your
+        <br />
+        educative institution</p>
+    </div>
+    <div class="card p-3 m-5 card-custom1">
+      <form action="/login" method="post">
+        <div>
+          <h1 class="font-custom1">Sign in<span class="bg-custom5">.</span></h1>
+          <label for="role" class="form-label font-custom1">What are you?</label>
+          <div class="mb-3">
+            <div
+              class="rounded-pill"
+              style="background-color:#E7E7EF ;"
+              role="group"
+              aria-label="Basic radio toggle button group"
+              id="role"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                name="Role"
+                id="btnradio1"
+                autocomplete="off"
+                value="Student"
+                checked
+              />
+              <label
+                class="btn btn-outline-secondary rounded-pill"
+                for="btnradio1"
+              >Student</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="Role"
+                id="btnradio2"
+                autocomplete="off"
+                value="Profesor"
+              />
+              <label
+                class="btn btn-outline-primary btn-outline-secondary rounded-pill"
+                for="btnradio2"
+              >Profesor</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="Role"
+                id="btnradio3"
+                autocomplete="off"
+                value="Admin"
+              />
+              <label
+                class="btn btn-outline-primary btn-outline-secondary rounded-pill"
+                for="btnradio3"
+              >Admin</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label
+              for="Code"
+              class="form-label font-custom1"
+            >Code</label>
+            <input type="text" class="form-control" id="Code" name="Code" />
+          </div>
+          <div class="mb-3">
+            <label
+              for="Password"
+              class="form-label font-custom1"
+            >Password</label>
+            <input type="password" class="form-control" id="Password" name="Password"/>
+          </div>
+          <button
+            type="submit"
+            class="btn w-100 font-custom1"
+            style="background-color: #FF84E8;"
+          >Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

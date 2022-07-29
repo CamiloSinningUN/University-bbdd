@@ -1,0 +1,67 @@
+<!-- Zone you have class and its active -->
+{{#if course}}
+<div class="h-100 w-100 m-5 p-5 mx-auto">
+  <h1 class="text-center font-custom1" style="color: white;">You have a class now</h1>
+
+  <div class="card m-5 border border-light mx-auto p-3 w-75" style="border-radius: 25px 25px 25px 25px;">
+    <h1 class="font-custom1 text-center">{{subject.namesub}}<span class="bg-custom5">.</span></h1>
+    <hr class="sidebar-divider mt-2 w-100 bg-dark" />
+    <h2 class="font-custom1">Course<span class="bg-custom5 m-1">:</span>
+      <span class="font-custom1">{{course.NRC}}</span>
+    </h2>
+    <h2 class="font-custom1">Hour<span class="bg-custom5 m-1">:</span>
+      <span class="font-custom1">{{schedule.st_time}} <span class="bg-custom5 m-1">-</span>
+        {{schedule.fin_time}}</span>
+    </h2>
+    {{#if meeting}}
+    {{else}}
+    <form action="/profesor/meetings/add/{{profesor.cod_prof}}/{{course.NRC}}/{{schedule.dates}}/{{schedule.st_time}}/{{schedule.fin_time}}" method="post">
+      <button type="submit" class="btn w-100 font-custom1" style="background-color: #FF84E8;">Begin</button>
+    </form>
+    {{/if}}
+  </div>
+  <div>
+    <div class="card shadow mt-4 w-100 card-custom1">
+      <div class="card-body">
+        <div class="card-text">
+          <table class="table text-center rounded-3 font-custom1">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Code</th>
+                <th scope="col">State</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each students}}
+              <tr>
+                <th scope="row">{{@index}}</th>
+                <td>{{nameE}}</td>
+                <td>{{lastname}}</td>
+                <td>{{cod_stud}}</td>
+                <td>{{state}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{else}}
+<!-- Zone you don't have class -->
+<div class="h-100 w-100 m-5 p-5 mx-auto">
+  <h1 class="text-center font-custom1" style="color: white;">You don't have a class now</h1>
+  <div class="mx-auto m-5" style="width: 200px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-" viewBox="0 0 16 16">
+      <path
+        d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+      <path
+        d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+    </svg>
+  </div>
+</div>
+{{/if}}

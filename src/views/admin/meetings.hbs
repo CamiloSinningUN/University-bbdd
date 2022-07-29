@@ -1,0 +1,187 @@
+<div class="container d-flex justify-content-around align-items-center p-5">
+    <div class="card border border-dark p-3 m-5 w-50 card-custom1">
+        <form action="/admin/meetings/add" method="post">
+            <div>
+                <h1 class="font-custom1">Meeting<span class="bg-custom5">.</span></h1>
+                <div class="mb-3">
+                    <label for="Code" class="form-label font-custom1">Code</label>
+                    <input type="number" class="form-control" id="Code" name="Code" required />
+                </div>
+                <div class="mb-3">
+                    <label for="stud_number" class="form-label font-custom1">Students number</label>
+                    <input type="number" class="form-control" id="stud_number" name="stud_number" required />
+                </div>
+                <div class="mb-3">
+                    <label for="prof_number" class="form-label font-custom1">Profesors number</label>
+                    <input type="number" class="form-control" id="prof_number" name="prof_number" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Date" class="form-label font-custom1">Date</label>
+                    <input type="date" class="form-control" id="Date" name="today" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Code_c" class="form-label font-custom1">Classroom code</label>
+                    <select class="form-control" name="Code_c" id="Code_c">
+                        {{#each classrooms}}
+                        <option value="{{cod_class}}">{{cod_class}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="Code_p" class="form-label font-custom1">Profesor code</label>
+                    <select class="form-control" name="Code_p" id="Code_p">
+                        {{#each profesors}}
+                        <option value="{{cod_prof}}">{{namep}}, {{cod_prof}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="Schedule" class="form-label font-custom1">Schedule</label>
+                    <select class="form-control" name="Schedule" id="Schedule">
+                        {{#each schedules}}
+                        <option value="{{dates}}/{{st_time}}/{{fin_time}}/{{NRC}}">{{dates}}, {{st_time}}, {{fin_time}},
+                            {{NRC}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <button type="submit" class="btn w-100 font-custom1" style="background-color: #FF84E8;">Create</button>
+            </div>
+        </form>
+    </div>
+    <div class="card border border-dark p-3 m-5 w-50 card-custom1">
+        <form id="Meeting_edit" action="" method="post">
+            <div>
+                <h1 class="font-custom1">Meeting edit<span class="bg-custom5">.</span></h1>
+                <div class="mb-3">
+                    <label for="Code_edit" class="form-label font-custom1">Code</label>
+                    <input type="number" class="form-control" id="Code_edit" name="Code" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Stud_number_edit" class="form-label font-custom1">Students number</label>
+                    <input type="number" class="form-control" id="Stud_number_edit" name="stud_number" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Prof_number_edit" class="form-label font-custom1">Profesors number</label>
+                    <input type="number" class="form-control" id="Prof_number_edit" name="prof_number" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Today_edit" class="form-label font-custom1">Date</label>
+                    <input type="date" class="form-control" id="Today_edit" name="today" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Code_c_edit" class="form-label font-custom1">Classroom code</label>
+                    <select class="form-control" name="Code_c" id="Code_c_edit">
+                        {{#each classrooms}}
+                        <option value="{{cod_class}}">{{cod_class}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="Code_p_edit" class="form-label font-custom1">Profesor code</label>
+                    <select class="form-control" name="Code_p" id="Code_p_edit">
+                        {{#each profesors}}
+                        <option value="{{cod_prof}}">{{namep}}, {{cod_prof}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="Schedule_edit" class="form-label font-custom1">Schedule</label>
+                    <select class="form-control" name="Schedule" id="Schedule_edit">
+                        {{#each schedules}}
+                        <option value="{{dates}}/{{st_time}}/{{fin_time}}/{{NRC}}">{{dates}}, {{st_time}}, {{fin_time}},
+                            {{NRC}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <button id="Button_edit" type="submit" class="btn w-100 font-custom1" style="background-color: #FF84E8;"
+                    disabled>Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container d-flex justify-content-center p-5">
+    <div class="card shadow mt-4 w-100 card-custom1">
+        <div class="card-body">
+            <div class="card-text">
+                <table class="table text-center rounded-3 font-custom1">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Profesor number</th>
+                            <th scope="col">Students number</th>
+                            <th scope="col">Day</th>
+                            <th scope="col">NRC</th>
+                            <th scope="col">Classroom</th>
+                            <th scope="col">Profesor</th>
+                            <th scope="col">Weekday</th>
+                            <th scope="col">st_time</th>
+                            <th scope="col">fin_time</th>
+                            <th scope="col">Borrar</th>
+                            <th scope="col">editar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each meetings}}
+                        <tr>
+                            <th scope="row">{{@index}}</th>
+                            <td>{{cod}}</td>
+                            <td>{{prof_number}}</td>
+                            <td>{{stud_number}}</td>
+                            <td>{{today}}</td>
+                            <td>{{NRC}}</td>
+                            <td>{{cod_class}}</td>
+                            <td>{{cod_prof}}</td>
+                            <td>{{dates}}</td>
+                            <td>{{st_time}}</td>
+                            <td>{{fin_time}}</td>
+                            <td><a href="/admin/meetings/delete/{{cod}}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="bg-dark"
+                                        class="bi bi-trash shake" viewBox="0 0 16 16">
+                                        <path
+                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z">
+                                        </path>
+                                        <path fill-rule="evenodd"
+                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z">
+                                        </path>
+                                    </svg>
+                                </a></td>
+                            <td><a onclick="edit('{{cod}}','{{prof_number}}','{{stud_number}}','{{today}}','{{NRC}}','{{cod_class}}','{{cod_prof}}','{{dates}}','{{st_time}}','{{fin_time}}')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="bg-dark"
+                                        class="bi bi-pencil" viewBox="0 0 16 16">
+                                        <path
+                                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z">
+                                        </path>
+                                    </svg>
+                                </a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function edit(i, j, k, l, m, n, o, p, q, r) {
+        var form = document.getElementById('Meeting_edit');
+        var code = document.getElementById("Code_edit");
+        var prof_number = document.getElementById("Prof_number_edit");
+        var stud_number = document.getElementById("Stud_number_edit");
+        var today = document.getElementById("Today_edit");
+        var cod_class = document.getElementById("Code_c_edit");
+        var cod_prof = document.getElementById("Code_p_edit");
+        var schedule = document.getElementById("Schedule_edit");
+        var button = document.getElementById("Button_edit");
+        code.value = i;
+        prof_number.value = j;
+        stud_number.value = k;
+        today.value = l;
+        cod_class.value = n;
+        cod_prof.value = o;
+        schedule.value = p+"/"+q+"/"+r+"/"+m;
+        form.action = "/admin/meetings/edit/" + i;
+        button.disabled = false;
+    }
+</script>

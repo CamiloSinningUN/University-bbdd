@@ -1,0 +1,40 @@
+<!-- Zone you have class and its active -->
+{{#if curso}}
+  <div class="h-100 w-100 m-5 p-5 mx-auto">
+
+    <h1 class="text-center font-custom1" style="color: white;">Attendace list</h1>
+    <div class="card shadow mt-4 w-100 card-custom1">
+      <div class="card-body">
+        <div class="card-text">
+          <table class="table text-center rounded-3 font-custom1">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Attendace</th>
+                <th scope="col">Late Attendace</th>
+                <th scope="col">On time Attendace</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each curso}}
+                <tr>
+                  <th scope="row">{{@index}}</th>
+                  <td>{{cod_stud}}</td>
+                  <td>{{nameE}}</td>
+                  <td>{{lastname}}</td>
+                  <td>{{assis}}</td>
+                  <td>{{late}}</td>
+                  <td>{{gt}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{{/if}}
